@@ -16,7 +16,6 @@
 ### Association
 
 - has_many :items
-- has_one :address
 - has_many :orders
 - has_many :comments
 
@@ -32,7 +31,6 @@
 | prefecture_id  | integer    | null: false                    |
 | ship_date_id   | integer    | null: false                    |
 | prise          | integer    | null: false                    |
-| sold_out       | boolean    | null: false, default: false    |
 | user           | references | null: false, foreign_key: true |
 
 *ActiveStorageで画像添付機能を付ける*
@@ -40,13 +38,26 @@
 ### Association
 
 - belongs_to :user
-- has_one :orders
+- has_one :order
 - has_many :comments
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :ship_method
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :ship_date
+
+## orders テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ## addresses テーブル
 
@@ -58,27 +69,12 @@
 | street          | string     | null: false                    |
 | apartment       | string     |                                |
 | tel             | string     | null: false                    |
-| user            | references | null: false, foreign_key: true |
+| order           | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- has_many :orders
+- belongs_to :order
 - belongs_to_active_hash :prefecture
-
-## orders テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| address | references | null: false, foreign_key: true |
-| item    | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
-- belongs_to :address
 
 ## comments テーブル
 
