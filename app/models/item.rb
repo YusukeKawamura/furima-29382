@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :ship_method
     validates :prefecture
     validates :ship_date
-    validates :prise, numericality: { only_integt: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :price, numericality: { only_integt: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
   validates :category_id, :condition_id, :ship_method_id, :prefecture_id, :ship_date_id,
