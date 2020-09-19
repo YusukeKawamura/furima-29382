@@ -6,4 +6,18 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :ship_date
   belongs_to :user
+
+  with_options presence: true do
+    validates :name, length: { maximum: 40 }
+    validates :description, length: { maximum: 1000 }
+    validates :category
+    validates :condition
+    validates :ship_method
+    validates :prefecture
+    validates :ship_date
+    validates :prise, numericality: { only_integt: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  end
+
+  validates :category_id, :condition_id, :ship_method_id, :prefecture_id, :ship_date_id,
+            numericality: { other_than: 1 }
 end
