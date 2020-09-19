@@ -9,14 +9,10 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    validates :name, length: { maximum: 40 }
-    validates :description, length: { maximum: 1000 }
-    validates :category
-    validates :condition
-    validates :ship_method
-    validates :prefecture
-    validates :ship_date
-    validates :price, numericality: { only_integt: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :name, :description, :category, :condition, :ship_method, :prefecture, :ship_date
+    validates :price, numericality: { only_integt: true,
+                                      greater_than_or_equal_to: 300,
+                                      less_than_or_equal_to: 9_999_999 }
   end
 
   validates :category_id, :condition_id, :ship_method_id, :prefecture_id, :ship_date_id,
