@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :current_only, only: [:edit, :update]
 
   def index
     @items = Item.includes(:user)
@@ -23,11 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -42,5 +41,10 @@ class ItemsController < ApplicationController
       :name, :description, :category_id, :condition_id,
       :ship_method_id, :prefecture_id, :ship_date_id, :price, :image
     ).merge(user_id: current_user.id)
+  end
+
+  def current_only
+    @item = Item.find(params[:id])
+    redirect_to root_path if (current_user != @item.user) || current_user.nil?
   end
 end
