@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :ship_date
   belongs_to :user
   has_one_attached :image
+  has_one :order
 
   with_options presence: true do
     validates :image, :name, :description, :category, :condition, :ship_method, :prefecture, :ship_date
