@@ -13,6 +13,9 @@ const pay = () => {
       exp_year: `20${formData.get("exp_year")}`,
       card_cvc: formData.get("card_cvc"),
     }
+
+    Payjp.createToken(card, (status, response) => {
+    })
   })
 }
 addEventListener("load", pay)
