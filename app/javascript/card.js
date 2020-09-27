@@ -6,29 +6,29 @@ const pay = () => {
 
     const formResult = document.getElementById("charge-form")
     const formData = new FormData(formResult)
-
     const card = {
-      card_number: formData.get("card_number"),
-      exp_month: formData.get("exp_month"),
-      exp_year: `20${formData.get("exp_year")}`,
-      card_cvc: formData.get("card_cvc"),
+      number: formData.get("order_address[number]"),
+      exp_month: formData.get("order_address[exp_month]"),
+      exp_year: `20${formData.get("order_address[exp_year]")}`,
+      cvc: formData.get("order_address[cvc]"),
     }
 
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id
         const renderDom = document.getElementById("charge-form")
-        const tokenObj = `<input value=${token} type="hidden" name='token'>`
+        const tokenObj = `<input value=${token} type="hidden" name='order_address[token]'>`
         renderDom.insertAdjacentHTML("beforeend", tokenObj)
       }
-      document.getElementById("card_number").removeAttribute("name")
-      document.getElementById("exp_month").removeAttribute("name")
-      document.getElementById("exp_year").removeAttribute("name")
-      document.getElementById("card_cvc").removeAttribute("name")
+      document.getElementById("card-number").removeAttribute("name")
+      document.getElementById("card-exp-month").removeAttribute("name")
+      document.getElementById("card-exp-year").removeAttribute("name")
+      document.getElementById("card-cvc").removeAttribute("name")
 
       document.getElementById("charge-form").submit()
       document.getElementById("charge-form").reset()
     })
   })
 }
+
 addEventListener("load", pay)
