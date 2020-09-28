@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   before_action :find_item_buyable
 
   def index
-    binding.pry
     @order = OrderAddress.new
   end
 
