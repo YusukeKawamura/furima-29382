@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :find_item
+
   def index
-    @item = Item.find_by(id: params[:item_id])
     @order = OrderAddress.new
   end
 
   def create
-    @item = Item.find_by(id: params[:item_id])
     @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
@@ -23,6 +23,10 @@ class OrdersController < ApplicationController
       :postcode, :prefecture_id, :municipality,
       :street, :apartment, :tel, :token
     ).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
+  def find_item
+    @item = Item.find_by(id: params[:item_id])
   end
 
   def pay_item
