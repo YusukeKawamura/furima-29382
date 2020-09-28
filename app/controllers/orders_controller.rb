@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_item
+  before_action :find_item_buyable_user
 
   def index
     @order = OrderAddress.new
@@ -26,8 +26,9 @@ class OrdersController < ApplicationController
     ).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
-  def find_item
+  def find_item_buyable_user
     @item = Item.find_by(id: params[:item_id])
+    redirect_to root_path if current_user.id == @item.user.id
   end
 
   def pay_item
