@@ -7,9 +7,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :ship_date
   belongs_to :user
   has_one_attached :image
+  has_one :order
 
   with_options presence: true do
-    validates :image, :name, :description, :category, :condition, :ship_method, :prefecture, :ship_date
+    validates :image, :name, :description,
+              :category_id, :condition_id, :ship_method_id, :prefecture_id, :ship_date_id
     validates :price, numericality: { only_integer: true,
                                       greater_than_or_equal_to: 300,
                                       less_than_or_equal_to: 9_999_999 }

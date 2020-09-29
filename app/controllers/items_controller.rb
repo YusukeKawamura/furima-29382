@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :current_only, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:user)
+    @items = Item.all.order(id: 'DESC').includes(:user)
   end
 
   def new
