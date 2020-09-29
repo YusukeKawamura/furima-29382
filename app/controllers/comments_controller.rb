@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def new
-    @comments = Comment.all.includes(:user, :item)
     @comment = Comment.new
   end
 
