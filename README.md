@@ -95,3 +95,4 @@
 ### ship_method
 ### prefecture
 ### ship_date
+
