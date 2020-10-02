@@ -144,6 +144,7 @@
   width: 40vw;
   background-color: #fff;
   margin: 5vh 0;
+  padding-top: 2vh;
   padding-bottom: 1vh;
   text-align: center;
 }
@@ -263,3 +264,7 @@
   border-bottom-right-radius: 100px;
 }
 
+.comments {
+  height: 300px;
+  overflow: scroll;
+}
