@@ -94,7 +94,7 @@
       <% end %>
       <% end %>
     </div>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @item.order.nil? %>
     <%= form_with model: @comment, url: item_comments_path(@item.id), local: true do |f| %>
     <%= f.text_area :content, class:"comment-text", id:"comment_content" %>
     <p class="comment-warn">
