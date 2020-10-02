@@ -1,6 +1,6 @@
-function scroll() {
-  const target = document.getElementById('comments')
-  target.scrollIntoView(false)
+function endComments() {
+  const scroll = document.querySelector('.comments')
+  scroll.scrollTop = scroll.scrollHeight
 }
 
-addEventListener("load", scroll)
+addEventListener("load", endComments)
