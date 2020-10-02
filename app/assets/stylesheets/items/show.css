@@ -137,9 +137,9 @@
   margin-right: 5px;
 }
 
-
 /* /商品の概要 */
 
+/* コメント一覧 */
 .comment-box {
   width: 40vw;
   background-color: #fff;
@@ -147,6 +147,12 @@
   padding-top: 2vh;
   padding-bottom: 1vh;
   text-align: center;
+}
+
+.comment-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: darkslategrey;
 }
 
 .comment-text {
@@ -268,3 +274,5 @@
   height: 300px;
   overflow-y: scroll;
 }
+
+/* /コメント一覧 */
