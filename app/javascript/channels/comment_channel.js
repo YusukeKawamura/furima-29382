@@ -10,14 +10,26 @@ consumer.subscriptions.create("CommentChannel", {
   },
 
   received(data) {
-    const html = `
-    <div class="seller-content-box">
-      <p class="seller-nickname">${data.nickname}</p>
-      <p class="seller-content">${data.content.content}</p>
-    </div>`
-    const comment = document.getElementById('comments')
-    const newComment = document.getElementById('comment_content')
-    comment.insertAdjacentHTML('beforeend', html)
-    newComment.value = ''
+    if (data.user_id == data.item_id) {
+      const html = `
+      <div class="seller-content-box">
+        <p class="seller-nickname">${data.nickname}</p>
+        <p class="seller-content">${data.content.content}</p>
+      </div>`
+      const comment = document.getElementById('comments')
+      const newComment = document.getElementById('comment_content')
+      comment.insertAdjacentHTML('beforeend', html)
+      newComment.value = ''
+    } else {
+      const html = `
+      <div class="buyer-content-box">
+        <p class="buyer-content">${data.content.content}</p>
+        <p class="buyer-nickname">${data.nickname}</p>
+      </div>`
+      const comment = document.getElementById('comments')
+      const newComment = document.getElementById('comment_content')
+      comment.insertAdjacentHTML('beforeend', html)
+      newComment.value = ''
+    }
   }
 });

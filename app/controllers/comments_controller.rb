@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       ActionCable.server.broadcast 'comment_channel', content: @comment,
-                                                      nickname: @comment.user.nickname
+                                                      nickname: @comment.user.nickname,
+                                                      user_id: @comment.user.id,
+                                                      item_id: @comment.item.user.id
     end
   end
 
