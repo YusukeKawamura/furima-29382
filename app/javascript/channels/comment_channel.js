@@ -12,7 +12,7 @@ consumer.subscriptions.create("CommentChannel", {
   received(data) {
     const html = `
     <div class="seller-content-box">
-      <p class="seller-nickname"></p>
+      <p class="seller-nickname">${data.nickname}</p>
       <p class="seller-content">${data.content.content}</p>
     </div>`
     const comment = document.getElementById('comments')
