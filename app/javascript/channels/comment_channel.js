@@ -11,10 +11,12 @@ consumer.subscriptions.create("CommentChannel", {
 
   received(data) {
     if (data.user_id == data.item_id) {
+      const newContent = `${data.content.content}`
+      const text = newContent.replace(/\n|\r\n|\r/g, '<br>')
       const html = `
       <div class="seller-content-box">
         <p class="seller-nickname">${data.nickname}</p>
-        <p class="seller-content">${data.content.content}</p>
+        <p class="seller-content">${text}</p>
       </div>`
       const comment = document.getElementById('comments')
       const newComment = document.getElementById('comment-content')
@@ -24,9 +26,11 @@ consumer.subscriptions.create("CommentChannel", {
       scroll.scrollTop = scroll.scrollHeight
 
     } else {
+      const newContent = `${data.content.content}`
+      const text = newContent.replace(/\n|\r\n|\r/g, '<br>')
       const html = `
       <div class="buyer-content-box">
-        <p class="buyer-content">${data.content.content}</p>
+        <p class="buyer-content">${text}</p>
         <p class="buyer-nickname">${data.nickname}</p>
       </div>`
       const comment = document.getElementById('comments')
