@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @comments = Comment.all.includes(:user, :item)
+    @comments = Comment.where(item_id: @item.id)
   end
 
   def edit
