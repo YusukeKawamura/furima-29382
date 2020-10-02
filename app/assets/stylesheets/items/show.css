@@ -165,11 +165,16 @@
   resize: none;
 }
 
+.warn-box{
+  display: flex;
+  justify-content: center;
+}
+
 .comment-warn {
   padding: 10px;
   font-size: 14px;
-  margin: 10px 0px;
   text-align: left;
+  color: darkslategrey;
 }
 
 .comment-btn {
@@ -181,6 +186,7 @@
   min-width: 150px;
   font-size: 18px;
   border-radius: 100px;
+  margin-top: 1vh;
   margin-bottom: 2vh;
 }
 
