@@ -218,12 +218,16 @@
   width: 20%;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .seller-content {
   padding-left: 15px;
   font-size: 14px;
   color: darkslategrey;
+  text-align: left;
 }
 
 .buyer-content-box {
@@ -245,6 +249,7 @@
   padding-right: 15px;
   font-size: 14px;
   color: darkslategrey;
+  text-align: left;
 }
 
 .buyer-nickname {
@@ -253,6 +258,9 @@
   width: 20%;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .comments {

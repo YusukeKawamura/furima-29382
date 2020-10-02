@@ -86,11 +86,11 @@
         <% if comment.user.id == comment.item.user.id %>
         <div class="seller-content-box">
           <p class="seller-nickname"><%= comment.user.nickname %></p>
-          <p class="seller-content"><%= comment.content %></p>
+          <p class="seller-content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
         </div>
         <% else %>
         <div class="buyer-content-box">
-          <p class="buyer-content"><%= comment.content %></p>
+          <p class="buyer-content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
           <p class="buyer-nickname"><%= comment.user.nickname %></p>
         </div>
         <% end %>
