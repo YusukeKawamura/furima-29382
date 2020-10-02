@@ -202,10 +202,10 @@
 .seller-content-box {
   margin-left: 12px;
   margin-top: 20px;
-  line-height: 48px;
   border: 1px solid lightsalmon;
   width: 85%;
-  min-width: 150px;
+  min-width: 300px;
+  min-height: 48px;
   font-size: 18px;
   border-radius: 100px;
   margin-bottom: 2vh;
@@ -216,6 +216,7 @@
   background-color: lightsalmon;
   color: white;
   width: 20%;
+  min-width: 100px;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
   display: flex;
@@ -224,20 +225,22 @@
 }
 
 .seller-content {
-  padding-left: 15px;
+  padding: 7.5px 35px 7.5px 15px;
   font-size: 14px;
   color: darkslategrey;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 .buyer-content-box {
   margin-right: 12px;
   margin-top: 20px;
   margin-left: auto;
-  line-height: 48px;
   border: 1px solid mediumaquamarine;
   width: 85%;
-  min-width: 150px;
+  min-width: 300px;
+  min-height: 48px;
   font-size: 18px;
   border-radius: 100px;
   margin-bottom: 2vh;
@@ -246,16 +249,20 @@
 }
 
 .buyer-content {
+  padding: 7.5px 15px 7.5px 35px;
   padding-right: 15px;
   font-size: 14px;
   color: darkslategrey;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 .buyer-nickname {
   background-color: mediumaquamarine;
   color: white;
   width: 20%;
+  min-width: 100px;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   display: flex;
