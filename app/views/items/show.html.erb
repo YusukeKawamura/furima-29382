@@ -95,6 +95,11 @@
         </div>
         <% end %>
         <% end %>
+        <% if @comments.empty?%>
+        <div class="empty-content-box">
+          <p class="empty-comment-content">まだコメントがありません</p>
+        </div>
+        <% end %>
       </div>
     </div>
     <% if user_signed_in? && @item.order.nil? %>
