@@ -17,9 +17,12 @@ consumer.subscriptions.create("CommentChannel", {
         <p class="seller-content">${data.content.content}</p>
       </div>`
       const comment = document.getElementById('comments')
-      const newComment = document.getElementById('comment_content')
+      const newComment = document.getElementById('comment-content')
+      const scroll = document.querySelector('.comments')
       comment.insertAdjacentHTML('beforeend', html)
       newComment.value = ''
+      scroll.scrollTop = scroll.scrollHeight
+
     } else {
       const html = `
       <div class="buyer-content-box">
@@ -27,9 +30,11 @@ consumer.subscriptions.create("CommentChannel", {
         <p class="buyer-nickname">${data.nickname}</p>
       </div>`
       const comment = document.getElementById('comments')
-      const newComment = document.getElementById('comment_content')
+      const newComment = document.getElementById('comment-content')
+      const scroll = document.querySelector('.comments')
       comment.insertAdjacentHTML('beforeend', html)
       newComment.value = ''
+      scroll.scrollTop = scroll.scrollHeight
     }
   }
-});
+})

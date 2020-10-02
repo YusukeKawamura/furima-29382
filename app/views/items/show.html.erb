@@ -98,13 +98,13 @@
     </div>
     <% if user_signed_in? && @item.order.nil? %>
     <%= form_with model: @comment, url: item_comments_path(@item.id), local: true do |f| %>
-    <%= f.text_area :content, class:"comment-text", id:"comment_content" %>
+    <%= f.text_area :content, class:"comment-text", id:"comment-content" %>
     <p class="comment-warn">
       相手のことを考え丁寧なコメントを心がけましょう。
       <br>
       不快な言葉遣いなどは利用制限や退会処分となることがあります。
     </p>
-    <%= f.button class:"comment-btn" do %>
+    <%= f.button class:"comment-btn", id:"comment-btn" do %>
     <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
     <%= "コメントする" %>
     <% end %>
