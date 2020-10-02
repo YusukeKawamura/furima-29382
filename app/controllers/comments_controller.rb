@@ -14,6 +14,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find_by(id: params[:item_id])
+    @comment = Comment.find(params[:id])
+    redirect_to item_path(@item) if @comment.destroy
+  end
+
   private
 
   def comment_params
