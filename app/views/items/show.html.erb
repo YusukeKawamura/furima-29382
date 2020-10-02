@@ -81,7 +81,7 @@
   <div class="comment-box">
     <div id='comments'>
       <% @comments.each do |comment| %>
-      <%if comment.user.id == comment.item.user.id %>
+      <% if comment.user.id == comment.item.user.id %>
       <div class="seller-content-box">
         <p class="seller-nickname"><%= comment.user.nickname %></p>
         <p class="seller-content"><%= comment.content %></p>
@@ -94,6 +94,7 @@
       <% end %>
       <% end %>
     </div>
+    <% if user_signed_in? %>
     <%= form_with model: @comment, url: item_comments_path(@item.id), local: true do |f| %>
     <%= f.text_area :content, class:"comment-text", id:"comment_content" %>
     <p class="comment-warn">
@@ -104,6 +105,7 @@
     <%= f.button class:"comment-btn" do %>
     <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
     <%= "コメントする" %>
+    <% end %>
     <% end %>
     <% end %>
   </div>
