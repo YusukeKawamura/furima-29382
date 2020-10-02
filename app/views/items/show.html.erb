@@ -84,14 +84,24 @@
       <div id="comments">
         <% @comments.each do |comment| %>
         <% if comment.user.id == comment.item.user.id %>
-        <div class="seller-content-box">
-          <p class="seller-nickname"><%= comment.user.nickname %></p>
-          <p class="seller-content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
+        <div class="seller-content">
+          <div class="seller-content-box">
+            <p class="seller-nickname"><%= comment.user.nickname %></p>
+            <p class="seller-content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
+          </div>
+          <% if comment.user == current_user %>
+          <%= link_to '削除', item_comment_path(@item.id, comment.id), method: :delete, class:'seller-comment-destroy' %>
+          <% end %>
         </div>
         <% else %>
-        <div class="buyer-content-box">
-          <p class="buyer-content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
-          <p class="buyer-nickname"><%= comment.user.nickname %></p>
+        <div class="buyer-content">
+          <% if comment.user == current_user %>
+          <%= link_to '削除', item_comment_path(@item.id, comment.id), method: :delete, class:'buyer-comment-destroy' %>
+          <%end%>
+          <div class="buyer-content-box">
+            <p class="buyer-content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
+            <p class="buyer-nickname"><%= comment.user.nickname %></p>
+          </div>
         </div>
         <% end %>
         <% end %>
