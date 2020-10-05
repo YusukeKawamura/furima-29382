@@ -14,9 +14,15 @@ consumer.subscriptions.create("CommentChannel", {
       const newContent = `${data.content.content}`
       const text = newContent.replace(/\n|\r\n|\r/g, '<br>')
       const html = `
-      <div class="seller-content-box">
-        <p class="seller-nickname">${data.nickname}</p>
-        <p class="seller-content">${text}</p>
+      <div class="seller-content" id="content-${data.comment_id}">
+        <div class="seller-content-box">
+          <p class="seller-nickname">${data.nickname}</p>
+          <p class="seller-content">${text}</p>
+        </div>
+          <a class="seller-comment-destroy" data-item-id="${data.item_id}" data-comment-id="${data.comment_id}"
+              data-remote="true" rel="nofollow" data-method="delete" href="/items/${data.item_id}/comments/${data.comment_id}">
+            削除
+          </a>
       </div>`
       const comment = document.getElementById('comments')
       const newComment = document.getElementById('comment-content')
@@ -29,9 +35,15 @@ consumer.subscriptions.create("CommentChannel", {
       const newContent = `${data.content.content}`
       const text = newContent.replace(/\n|\r\n|\r/g, '<br>')
       const html = `
-      <div class="buyer-content-box">
-        <p class="buyer-content">${text}</p>
-        <p class="buyer-nickname">${data.nickname}</p>
+      <div class="buyer-content" id="content-${data.comment_id}">
+        <a class="buyer-comment-destroy" data-item-id="${data.item_id}" data-comment-id="${data.comment_id}"
+            data-remote="true" rel="nofollow" data-method="delete" href="/items/${data.item_id}/comments/${data.comment_id}">
+          削除
+        </a>
+        <div class="buyer-content-box">
+          <p class="buyer-content">${text}</p>
+          <p class="buyer-nickname">${data.nickname}</p>
+        </div>
       </div>`
       const comment = document.getElementById('comments')
       const newComment = document.getElementById('comment-content')
