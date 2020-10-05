@@ -246,7 +246,7 @@
 
 .buyer-content{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   min-height: 48px;
 }
@@ -262,7 +262,6 @@
   border-radius: 100px;
   margin-bottom: 1vh;
   display: flex;
-  justify-content: flex-end;
 }
 
 .buyer-content {

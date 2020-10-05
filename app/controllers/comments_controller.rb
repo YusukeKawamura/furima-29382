@@ -10,14 +10,15 @@ class CommentsController < ApplicationController
       ActionCable.server.broadcast 'comment_channel', content: @comment,
                                                       nickname: @comment.user.nickname,
                                                       user_id: @comment.user.id,
-                                                      item_id: @comment.item.user.id
+                                                      item_id: @comment.item.user.id,
+                                                      comment_id: @comment.id
     end
   end
 
   def destroy
     @item = Item.find_by(id: params[:item_id])
     @comment = Comment.find(params[:id])
-    redirect_to item_path(@item) if @comment.destroy
+    render 'items/destroy.js.erb' if @comment.destroy
   end
 
   private

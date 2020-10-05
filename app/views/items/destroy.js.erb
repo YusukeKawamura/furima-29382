@@ -1,0 +1,6 @@
+function destroyComment() {
+  const html = document.getElementById("content-<%= @comment.id %>")
+  html.remove()
+}
+
+setInterval(destroyComment, 1000)
