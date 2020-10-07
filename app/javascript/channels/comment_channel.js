@@ -15,11 +15,11 @@ consumer.subscriptions.create("CommentChannel", {
       const text = newContent.replace(/\n|\r\n|\r/g, '<br>')
       const html = `
         <div class="seller-content" id="content-${data.comment_id}">
-          <div class="seller-content-box">
+          <div class="seller-content-box new">
             <p class="seller-nickname">${data.nickname}</p>
             <p class="seller-content">${text}</p>
           </div>
-            <a class="seller-comment-destroy" data-remote="true" rel="nofollow"
+            <a class="seller-comment-destroy new" data-remote="true" rel="nofollow"
               data-method="delete" href="/items/${data.item_id}/comments/${data.comment_id}">削除</a>
         </div>`
       const comment = document.getElementById('comments')
@@ -32,9 +32,9 @@ consumer.subscriptions.create("CommentChannel", {
       const text = newContent.replace(/\n|\r\n|\r/g, '<br>')
       const html = `
         <div class="buyer-content" id="content-${data.comment_id}">
-          <a class="buyer-comment-destroy" data-remote="true" rel="nofollow"
+          <a class="buyer-comment-destroy new" data-remote="true" rel="nofollow"
             data-method="delete" href="/items/${data.item_id}/comments/${data.comment_id}">削除</a>
-          <div class="buyer-content-box">
+          <div class="buyer-content-box new">
             <p class="buyer-content">${text}</p>
             <p class="buyer-nickname">${data.nickname}</p>
           </div>
@@ -49,8 +49,9 @@ consumer.subscriptions.create("CommentChannel", {
     scroll.scrollTop = scroll.scrollHeight
 
     if (data.comments_size == 1) {
-      const emptyContent = document.getElementById('empty-content-box')
-      emptyContent.remove()
+      $('#empty-content-box').fadeOut(900, function () {
+        $(this).remove()
+      })
     }
   }
 })

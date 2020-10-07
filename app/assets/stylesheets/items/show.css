@@ -218,6 +218,10 @@
   display: flex;
 }
 
+.seller-content-box.new {
+  animation: slide-right 1.2s;
+}
+
 .seller-nickname {
   background-color: lightsalmon;
   color: white;
@@ -244,6 +248,11 @@
   color: darkgray;
 }
 
+.seller-comment-destroy.new {
+  animation: slide-right 1.2s;
+  animation-fill-mode: forwards;
+}
+
 .buyer-content{
   display: flex;
   justify-content: flex-end;
@@ -262,6 +271,10 @@
   border-radius: 100px;
   margin-bottom: 1vh;
   display: flex;
+}
+
+.buyer-content-box.new {
+  animation: slide-left 1.2s;
 }
 
 .buyer-content {
@@ -291,6 +304,10 @@
   color: darkgray;
 }
 
+.buyer-comment-destroy.new {
+  animation: slide-left 1.2s;
+}
+
 .comments {
   height: 300px;
   overflow-y: scroll;
@@ -309,6 +326,38 @@
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+  animation: fade-in 1.2s;
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* /コメント一覧 */
