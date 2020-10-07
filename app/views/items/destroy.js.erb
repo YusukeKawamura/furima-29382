@@ -1,0 +1,18 @@
+function destroyComment() {
+  $('#content-<%= @comment.id %>').fadeOut(400, function () {
+    $(this).remove()
+  })
+
+  const comment = document.getElementById('comments')
+  if (comment.children.length === 0) {
+  <% if @comments.ids.empty? %>
+  const emptyContent =`
+    <div class="empty-content-box" id="empty-content-box">
+      <p class="empty-comment-content">まだコメントがありません</p>
+    </div>`
+  comment.insertAdjacentHTML('beforeend', emptyContent)
+  <% end %>
+  }
+}
+
+setInterval(destroyComment, 1000)

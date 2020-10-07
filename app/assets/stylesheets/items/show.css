@@ -137,29 +137,43 @@
   margin-right: 5px;
 }
 
-
 /* /商品の概要 */
 
+/* コメント一覧 */
 .comment-box {
   width: 40vw;
   background-color: #fff;
   margin: 5vh 0;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
   text-align: center;
 }
 
+.comment-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: darkslategrey;
+}
+
 .comment-text {
-  width: 100%;
-  height: 100px;
+  width: 95%;
+  height: 120px;
   padding: 10px;
+  margin-top: 20px;
   border: solid 2px #dedede;
   resize: none;
+}
+
+.warn-box{
+  display: flex;
+  justify-content: center;
 }
 
 .comment-warn {
   padding: 10px;
   font-size: 14px;
-  margin: 10px 0px;
   text-align: left;
+  color: darkslategrey;
 }
 
 .comment-btn {
@@ -171,7 +185,9 @@
   min-width: 150px;
   font-size: 18px;
   border-radius: 100px;
+  margin-top: 1vh;
   margin-bottom: 2vh;
+  outline: none;
 }
 
 .comment-flag {
@@ -182,6 +198,169 @@
 .comment-flag-icon {
   margin: 10px 5px 0 0;
 }
+
+.seller-content{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+}
+
+.seller-content-box {
+  margin-left: 12px;
+  border: 1px solid lightsalmon;
+  width: 90%;
+  min-width: 300px;
+  min-height: 48px;
+  font-size: 18px;
+  border-radius: 100px;
+  margin-bottom: 1vh;
+  display: flex;
+}
+
+.seller-content-box.new {
+  animation: slide-right 1.2s;
+}
+
+.seller-nickname {
+  background-color: lightsalmon;
+  color: white;
+  width: 20%;
+  min-width: 100px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seller-content {
+  padding: 7.5px 35px 7.5px 15px;
+  font-size: 14px;
+  color: darkslategrey;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.seller-comment-destroy {
+  font-size: 12px;
+  color: darkgray;
+}
+
+.seller-comment-destroy.new {
+  animation: slide-right 1.2s;
+  animation-fill-mode: forwards;
+}
+
+.buyer-content{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 48px;
+}
+
+.buyer-content-box {
+  margin-right: 12px;
+  margin-left: auto;
+  border: 1px solid mediumaquamarine;
+  width: 90%;
+  min-width: 300px;
+  min-height: 48px;
+  font-size: 18px;
+  border-radius: 100px;
+  margin-bottom: 1vh;
+  display: flex;
+}
+
+.buyer-content-box.new {
+  animation: slide-left 1.2s;
+}
+
+.buyer-content {
+  padding: 7.5px 15px 7.5px 35px;
+  padding-right: 15px;
+  font-size: 14px;
+  color: darkslategrey;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.buyer-nickname {
+  background-color: mediumaquamarine;
+  color: white;
+  width: 20%;
+  min-width: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buyer-comment-destroy {
+  font-size: 12px;
+  color: darkgray;
+}
+
+.buyer-comment-destroy.new {
+  animation: slide-left 1.2s;
+}
+
+.comments {
+  height: 300px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.empty-content-box {
+  line-height: 48px;
+  border: 1px solid darkgray;
+  color: darkslategrey;
+  width: 85%;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  animation: fade-in 1.2s;
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* /コメント一覧 */
 
 .links {
   display: flex;
